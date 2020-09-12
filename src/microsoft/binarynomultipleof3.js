@@ -39,7 +39,7 @@ var power = require("../utils/math/power");
  * divide it by 3
  */
 function approach1(input) {
-  let number = ("" + input)
+  let number = input
     .split("")
     .reverse()
     .map(function (value, index) {
@@ -48,7 +48,7 @@ function approach1(input) {
     .reduce((acc, curr) => {
       return acc + curr;
     });
-//   console.log(`number is..`, number);
+  console.log(`number is..`, number);
   return number % 3 == 0;
 }
 
@@ -74,9 +74,33 @@ function approach2(input) {
   if (sum == 0) return true;
   return false;
 }
+/**
+ * if the difference of (sum of the odd bit set) and (sum of the even bit) is divisble by 3 number is divisble by 3
+ * This is applicable to all the numbers say for 11 you can calculate the same
+ */
+function approach3(input) {
+  let oddSum = 0,
+    evenSum = 0;
+  for (var i = 0; i < input.length; i++) {
+    if (i % 2 == 0) {
+      evenSum += parseInt(input[i]); //input.charCodeAt(i);
+    } else {
+      oddSum += parseInt(input[i]); //input.charCodeAt(i);
+    }
+  }
+  //   console.log(`evenSum .. ${evenSum}`);
+  //   console.log(`oddSum .. ${oddSum}`);
+  return (oddSum - evenSum) % 3 == 0;
+}
 
-console.log(`Is number divisible by 3 `, approach1(011));
-console.log(`Is number divisible by 3 `, approach2("011"));
+console.log(`1- Is number divisible by 3 `, approach1("011"));
+console.log(`2- Is number divisible by 3 `, approach2("011"));
+console.log(`3- Is number divisible by 3 `, approach3("011"));
+
+console.log(`1- Is number divisible by 3 `, approach1("11101111"));
+console.log(`2- Is number divisible by 3 `, approach2("11101111"));
+console.log(`3- Is number divisible by 3 `, approach3("11101111"));
+
 // console.log(`Is number divisible by 3 `, approach1(10000));
 // console.log(`Is number divisible by 3 `, approach1(1001));
 // console.log(`Is number divisible by 3 `, approach1(100001));
