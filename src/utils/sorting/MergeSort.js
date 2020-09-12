@@ -56,9 +56,15 @@ function MergeSort(array) {
   };
 }
 
-// let mergeSort = new MergeSort([64, 21, 33, 70, 12, 85, 44, 3]);
-// console.log(`Before sorting ...`, mergeSort.getArray());
-// mergeSort.recursiveMergeSort();
-// console.log(`After sorting ...`, mergeSort.getArray());
+/**
+ * please make this variable as true
+ */
+let test = false;
+if (test) {
+  let mergeSort = new MergeSort([64, 21, 33, 70, 12, 85, 44, 3]);
+  console.log(`Before sorting ...`, mergeSort.getArray());
+  mergeSort.recursiveMergeSort();
+  console.log(`After sorting ...`, mergeSort.getArray());
+}
 
 module.exports = MergeSort;
