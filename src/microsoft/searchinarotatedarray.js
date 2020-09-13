@@ -48,7 +48,7 @@
  * @param {*} upperbound 
  * @param {*} searchKey 
  */
-function searchInRotatedArray(array, lowerbound, upperbound, searchKey) {
+function recSearchInRotatedArray(array, lowerbound, upperbound, searchKey) {
   /**
    * lowerbound is exceeding the upperbound return -1
    * searchKey is not present
@@ -70,31 +70,32 @@ function searchInRotatedArray(array, lowerbound, upperbound, searchKey) {
   if (array[lowerbound] <= array[mid]) {
     /* As this subarray is sorted, we can quickly check if key lies in half or other half */
     if (searchKey >= array[lowerbound] && searchKey <= array[mid]) {
-      return searchInRotatedArray(array, lowerbound, mid - 1, searchKey);
+      return recSearchInRotatedArray(array, lowerbound, mid - 1, searchKey);
     } else {
-      return searchInRotatedArray(array, mid + 1, upperbound, searchKey);
+      return recSearchInRotatedArray(array, mid + 1, upperbound, searchKey);
     }
   } else {
     /**
      * check for the upper half sorted or not
      */
     if (searchKey >= array[mid] && searchKey <= array[upperbound]) {
-      return searchInRotatedArray(array, mid + 1, upperbound, searchKey);
+      return recSearchInRotatedArray(array, mid + 1, upperbound, searchKey);
     } else {
-      return searchInRotatedArray(array, lowerbound, mid - 1, searchKey);
+      return recSearchInRotatedArray(array, lowerbound, mid - 1, searchKey);
     }
   }
 }
+
 let input = [4, 5, 6, 7, 0, 1, 2],
   lb = 0,
   ub = input.length - 1,
   searchKey = 3;
 console.log(
-  `Index of the input variable ... `,
-  searchInRotatedArray(input, lb, ub, searchKey)
+  `Index of ${searchKey} the input variable ... `,
+  recSearchInRotatedArray(input, lb, ub, searchKey)
 );
 
 console.log(
-  `Index of the input variable ... `,
-  searchInRotatedArray(input, lb, ub, 7)
+  `Index of ${7} the input variable ... `,
+  recSearchInRotatedArray(input, lb, ub, 7)
 );
