@@ -44,7 +44,8 @@ Constraints:
  */
 
 /**
- * Checking whether path in the tree has path with defined sum
+ * Checking whether path in the tree has path with defined sum recursively
+ * Idea is to get the difference left and pass that on till we get it 0 and that too on the Leaf level.
  * @param {*} root
  * @param {*} sum
  */
