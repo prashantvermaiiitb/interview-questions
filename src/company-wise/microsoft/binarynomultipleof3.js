@@ -27,7 +27,7 @@
  * Constraints:
  * 1 ≤ |S| ≤ 105
  */
-var power = require("../utils/math/power");
+var power = require("../../utils/math/power");
 /**
  * Convert the binary in decimal
  * then check the divisibility by 3
