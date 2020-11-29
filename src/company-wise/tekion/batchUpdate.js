@@ -77,7 +77,7 @@ function makeRequest(...params) {
         })
         .finally((info) => {
           console.log(info);
-        });
+        }); 
     }, x);
   }
   //batch the request
@@ -139,9 +139,9 @@ function main() {
   setTimeout(function () {
     generateRequest(2);
   }, 1000);
-  // setTimeout(function () {
-  //   generateRequest(2);
-  // }, 1000);
+  setTimeout(function () {
+    generateRequest(2);
+  }, 500);
 }
 main();
 console.log(queue);
