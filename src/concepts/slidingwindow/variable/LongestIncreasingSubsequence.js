@@ -12,7 +12,7 @@ function longestSubSequence(array) {
   let anchor = 0,
     result = 0;
   for (let j = 0; j < array.length; j++) {
-    //array index out of bound errors.
+    //array index out of bound errors. condition breach
     if (j != 0 && array[j - 1] >= array[j]) {
       anchor = j;
     }
