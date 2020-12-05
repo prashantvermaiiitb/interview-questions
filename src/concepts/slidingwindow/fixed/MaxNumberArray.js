@@ -12,22 +12,39 @@
 
 // Input: nums = [4,-2], k = 2 Output: [4]
 
-function MaxNumberInSubArray(nums, k) {
+function MaxNumberInSubArray(a, k) {
     let i = 0,
-        j = 0,
+        j = 1,
         result = [],
-        temp = [],
-        len = nums.length;
-    while (j < len) {
-        temp.push(nums[j]);
-        if (temp.length === k) {
-            //condition met
-            //get the max element
-            result.push(temp.sort((a, b) => a - b)[k - 1]);
-            temp.shift();
+        max = -Infinity,
+        len = a.length;
+    max = Math.max(max, a[i]); // get the initial max item
+    if (len === k) { //when the window size = length of the array
+        result.push(max);
+    } else {
+        while (j < len) {
+            max = Math.max(max, a[j]);
+            if (j - i + 1 === k) { //window size
+                result.push(max);
+                i++;
+                max = a[i];
+            }
+            j++;
         }
-        j++;
     }
+
+
+    //Approach#1    
+    // while (j < len) {
+    //     temp.push(nums[j]);
+    //     if (temp.length === k) {
+    //         //condition met
+    //         //get the max element
+    //         result.push(temp.sort((a, b) => a - b)[k - 1]);
+    //         temp.shift();
+    //     }
+    //     j++;
+    // }
     return result;
 }
 
