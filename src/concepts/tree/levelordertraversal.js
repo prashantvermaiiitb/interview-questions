@@ -92,16 +92,11 @@ function printGivenLevel(node, level) {
 /**------------------------------------------- */
 
 function printLevelOrderWith1Q(root, result = []) {
-    let tmpNode = root;
-    if (tmpNode === null) {
-        return result;
-    } else {
-        let q = [tmpNode];
-        while (q.length > 0) {
-            result.push([q.shift().val]);
-            tmpNode.left !== null && q.push(tmpNode.left);
-            tmpNode.right !== null && q.push(tmpNode.right);
-        }
-        return result;
+    let q = [root];
+    while (q.length > 0) {
+        result.push([q.shift().val]);
+        root.left !== null && q.push(root.left);
+        root.right !== null && q.push(root.right);
     }
+    return result;
 }
