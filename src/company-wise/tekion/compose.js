@@ -46,13 +46,13 @@
 addTen = (value) => value + 10;
 multiplyTen = (value) => value * 10;
 
-function compose(){ 
-    let functionList = arguments;     
-    return function(payload){
+function compose() {
+  let functionList = arguments;
+  return function (payload) {
     let promise = Promise.resolve(payload);
-    for(let i=0;i<functionList.length;i++){
-           promise = promise.then((response)=> Promise.resolve(functionList[i](response));)   
-        }
-     return promise;
-   }
- }
+    for (let i = 0; i < functionList.length; i++) {
+      promise = promise.then((response) => Promise.resolve(functionList[i](response)));
+    }
+    return promise;
+  }
+}
